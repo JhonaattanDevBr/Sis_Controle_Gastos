@@ -1,0 +1,5 @@
+Nome -> varchar(20) -> not null 
+Data do Pagamento -> varchar(10) -> not null
+Valor 
+Forma de Pagamento
+Pago

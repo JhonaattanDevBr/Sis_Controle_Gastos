@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="BasesDeDados.cs" />
     <Compile Include="CategoriasMdl.cs" />
+    <Compile Include="FormaDePagamentoMdl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

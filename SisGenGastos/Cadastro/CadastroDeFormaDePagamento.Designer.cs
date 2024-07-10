@@ -49,9 +49,11 @@
             this.TxtNomeDaFormaDePagamento.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.TxtNomeDaFormaDePagamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
             this.TxtNomeDaFormaDePagamento.Location = new System.Drawing.Point(17, 41);
+            this.TxtNomeDaFormaDePagamento.MaxLength = 20;
             this.TxtNomeDaFormaDePagamento.Name = "TxtNomeDaFormaDePagamento";
             this.TxtNomeDaFormaDePagamento.Size = new System.Drawing.Size(335, 30);
             this.TxtNomeDaFormaDePagamento.TabIndex = 1;
+            this.TxtNomeDaFormaDePagamento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtNomeDaFormaDePagamento_KeyPress);
             // 
             // BtnCancelar
             // 
@@ -76,6 +78,7 @@
             this.BtnCadastrar.TabIndex = 3;
             this.BtnCadastrar.Text = "Cadastrar";
             this.BtnCadastrar.UseVisualStyleBackColor = false;
+            this.BtnCadastrar.Click += new System.EventHandler(this.BtnCadastrar_Click);
             // 
             // CadastroDeFormaDePagamento
             // 

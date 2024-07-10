@@ -8,6 +8,9 @@ namespace SisGenGastosModel
 {
     public class BasesDeDados
     {
-        public string chaveConexaoDesktop = @"Data Source=DESKTOP-AF6EDUF\SQLEXPRESSS;Initial Catalog=DbControleDeGastos;Integrated Security=True;Encrypt=False";
+        // CHAVE CONEXÂO NOTEBOOK: Data Source=JHONATAN\SQLEXPRESS;Initial Catalog=DbControleDeGastos;Integrated Security=True
+        // CHAVE CONEXAO DESKTOP: Data Source=DESKTOP-AF6EDUF\SQLEXPRESSS;Initial Catalog=DbControleDeGastos;Integrated Security=True;Encrypt=False
+
+        public string chaveConexaoDesktop = @"Data Source=JHONATAN\SQLEXPRESS;Initial Catalog=DbControleDeGastos;Integrated Security=True";
     }
 }

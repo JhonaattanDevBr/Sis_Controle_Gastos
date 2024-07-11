@@ -61,17 +61,21 @@
             this.TxtNomeDoCartaoDeCredito.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.TxtNomeDoCartaoDeCredito.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.TxtNomeDoCartaoDeCredito.Location = new System.Drawing.Point(17, 41);
+            this.TxtNomeDoCartaoDeCredito.MaxLength = 20;
             this.TxtNomeDoCartaoDeCredito.Name = "TxtNomeDoCartaoDeCredito";
             this.TxtNomeDoCartaoDeCredito.Size = new System.Drawing.Size(335, 30);
             this.TxtNomeDoCartaoDeCredito.TabIndex = 2;
+            this.TxtNomeDoCartaoDeCredito.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtNomeDoCartaoDeCredito_KeyPress);
             // 
             // TxtDiaDeVencimento
             // 
             this.TxtDiaDeVencimento.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.TxtDiaDeVencimento.Location = new System.Drawing.Point(17, 108);
+            this.TxtDiaDeVencimento.MaxLength = 2;
             this.TxtDiaDeVencimento.Name = "TxtDiaDeVencimento";
             this.TxtDiaDeVencimento.Size = new System.Drawing.Size(50, 30);
             this.TxtDiaDeVencimento.TabIndex = 3;
+            this.TxtDiaDeVencimento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtDiaDeVencimento_KeyPress);
             // 
             // BtnCancelar
             // 

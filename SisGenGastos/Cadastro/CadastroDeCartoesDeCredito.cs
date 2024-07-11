@@ -16,5 +16,32 @@ namespace SisGenGastos.Cadastro
         {
             InitializeComponent();
         }
+
+        private void TxtNomeDoCartaoDeCredito_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(!char.IsLetter(e.KeyChar) && e.KeyChar != 8)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void TxtDiaDeVencimento_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsNumber(e.KeyChar) && e.KeyChar != 8) // Estou tentando implementar uma logica para verificar se o valor é maior que 31 e maior que 0, mas ainda não funcionoo.
+            {
+                e.Handled = true;
+                
+            }
+            else
+            {
+                char asciiNum = e.KeyChar;
+                int num = Convert.ToInt16(asciiNum);
+
+                if (!(num >= 0 && num <= 31))
+                {
+                    TxtDiaDeVencimento.Clear();
+                }
+            }
+        }
     }
 }

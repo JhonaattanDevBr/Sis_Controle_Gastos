@@ -17,7 +17,7 @@ namespace SisGenGastos
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new CadastroDeFormaDePagamento());
+            Application.Run(new CadastroDeCartoesDeCredito());
         }
     }
 }

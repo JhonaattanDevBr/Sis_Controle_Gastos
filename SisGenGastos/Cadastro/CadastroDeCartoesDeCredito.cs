@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SisGenGastosControl;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -27,19 +28,47 @@ namespace SisGenGastos.Cadastro
 
         private void TxtDiaDeVencimento_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsNumber(e.KeyChar) && e.KeyChar != 8) // Estou tentando implementar uma logica para verificar se o valor é maior que 31 e maior que 0, mas ainda não funcionoo.
+            if (!char.IsNumber(e.KeyChar) && e.KeyChar != 8)
             {
                 e.Handled = true;
-                
             }
             else
             {
-                char asciiNum = e.KeyChar;
-                int num = Convert.ToInt16(asciiNum);
-
-                if (!(num >= 0 && num <= 31))
+                if(e.KeyChar == 8)
+                {}
+                else
                 {
-                    TxtDiaDeVencimento.Clear();
+                    if(TxtDiaDeVencimento.Text.Length == 1) 
+                    {
+                        string digitoUm = TxtDiaDeVencimento.Text;
+                        string digitoDois = e.KeyChar.ToString();
+                        string numero = digitoUm + digitoDois;
+                        int num = int.Parse(numero);
+                        if (!(num > 0 && num <= 31))
+                        {
+                            e.Handled = true;
+                        }
+                    }
+                }
+            }
+        }
+
+        private void BtnCadastrar_Click(object sender, EventArgs e)
+        {
+            CartaoDeCreditoCtl carCredCtl = new CartaoDeCreditoCtl();
+            bool[] devoProsseguir = new bool[2];
+            devoProsseguir[0] = carCredCtl.AutenticarNome(TxtNomeDoCartaoDeCredito.Text);
+            devoProsseguir[1] = carCredCtl.AutenticarDataVencimento(TxtDiaDeVencimento.Text);
+            string[] msgErro = new string[2];
+            msgErro[0] = "Preencha o nome corretamente";
+            msgErro[1] = "Entre com uma data válida";
+
+            for (int i = 0; i <  devoProsseguir.Length; i++)
+            {
+                if (!devoProsseguir[i])
+                {
+                    MessageBox.Show(msgErro[i], "ATENÇÃO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    break;
                 }
             }
         }

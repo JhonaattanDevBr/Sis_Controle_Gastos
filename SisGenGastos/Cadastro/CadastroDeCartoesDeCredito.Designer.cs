@@ -100,6 +100,7 @@
             this.BtnCadastrar.TabIndex = 5;
             this.BtnCadastrar.Text = "Cadastrar";
             this.BtnCadastrar.UseVisualStyleBackColor = false;
+            this.BtnCadastrar.Click += new System.EventHandler(this.BtnCadastrar_Click);
             // 
             // CadastroDeCartoesDeCredito
             // 

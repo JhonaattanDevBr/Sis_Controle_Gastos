@@ -43,5 +43,35 @@ namespace SisGenGastosModel
             }
             finally { conexao.Close(); }
         }
+
+        public List<string> ConsultarCategorias()
+        {
+            BasesDeDados dtBase = new BasesDeDados();
+            SqlConnection conexao = new SqlConnection(dtBase.chaveConexaoDesktop);
+            string select = "SELECT Nome FROM Categoria";
+            List<string> listaDeCategorias = new List<string>();
+
+            try
+            {
+                conexao.Open();
+                SqlCommand comandosSql = new SqlCommand(select, conexao);
+                SqlDataReader leitor = comandosSql.ExecuteReader();
+                while (leitor.Read())
+                {
+                    listaDeCategorias.Add(leitor.GetString(0));
+                }
+                conexao.Close();
+                return listaDeCategorias;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                conexao.Close();
+            }
+        }
     }
 }

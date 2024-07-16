@@ -29,5 +29,11 @@ namespace SisGenGastos
             CadastroDeCategorias categoriaTela = new CadastroDeCategorias();
             categoriaTela.ShowDialog();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            CadastroDeFormaDePagamento form = new CadastroDeFormaDePagamento();
+            form.ShowDialog();
+        }
     }
 }

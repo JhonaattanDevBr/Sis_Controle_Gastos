@@ -43,5 +43,35 @@ namespace SisGenGastosModel
             }
             finally { conexao.Close(); }
         }
+
+        public List<string> ConsultarFormasDePagamento()
+        {
+            BasesDeDados dtBase = new BasesDeDados();
+            SqlConnection conexao = new SqlConnection(dtBase.chaveConexaoDesktop);
+            string select = "SELECT Nome FROM Formas_De_Pagamento";
+            List<string> listaDeFormasDePagamento = new List<string>();
+
+            try
+            {
+                conexao.Open();
+                SqlCommand comandosSql = new SqlCommand(select, conexao);
+                SqlDataReader leitor = comandosSql.ExecuteReader();
+                while (leitor.Read())
+                {
+                    listaDeFormasDePagamento.Add(leitor.GetString(0));
+                }
+                conexao.Close();
+                return listaDeFormasDePagamento;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                conexao.Close();
+            }
+        }
     }
 }

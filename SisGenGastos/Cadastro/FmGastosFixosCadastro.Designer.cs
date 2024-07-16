@@ -58,7 +58,7 @@
             // 
             this.LblCategoria.AutoSize = true;
             this.LblCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
-            this.LblCategoria.Location = new System.Drawing.Point(290, 13);
+            this.LblCategoria.Location = new System.Drawing.Point(12, 76);
             this.LblCategoria.Name = "LblCategoria";
             this.LblCategoria.Size = new System.Drawing.Size(106, 25);
             this.LblCategoria.TabIndex = 1;
@@ -68,7 +68,7 @@
             // 
             this.LblDataDoPagamento.AutoSize = true;
             this.LblDataDoPagamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
-            this.LblDataDoPagamento.Location = new System.Drawing.Point(12, 78);
+            this.LblDataDoPagamento.Location = new System.Drawing.Point(377, 76);
             this.LblDataDoPagamento.Name = "LblDataDoPagamento";
             this.LblDataDoPagamento.Size = new System.Drawing.Size(205, 25);
             this.LblDataDoPagamento.TabIndex = 2;
@@ -78,7 +78,7 @@
             // 
             this.LblValor.AutoSize = true;
             this.LblValor.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
-            this.LblValor.Location = new System.Drawing.Point(290, 78);
+            this.LblValor.Location = new System.Drawing.Point(12, 139);
             this.LblValor.Name = "LblValor";
             this.LblValor.Size = new System.Drawing.Size(63, 25);
             this.LblValor.TabIndex = 3;
@@ -88,7 +88,7 @@
             // 
             this.LblFormaDePagamento.AutoSize = true;
             this.LblFormaDePagamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
-            this.LblFormaDePagamento.Location = new System.Drawing.Point(12, 139);
+            this.LblFormaDePagamento.Location = new System.Drawing.Point(263, 139);
             this.LblFormaDePagamento.Name = "LblFormaDePagamento";
             this.LblFormaDePagamento.Size = new System.Drawing.Size(221, 25);
             this.LblFormaDePagamento.TabIndex = 4;
@@ -98,7 +98,7 @@
             // 
             this.LblStatusPagamento.AutoSize = true;
             this.LblStatusPagamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
-            this.LblStatusPagamento.Location = new System.Drawing.Point(290, 139);
+            this.LblStatusPagamento.Location = new System.Drawing.Point(12, 200);
             this.LblStatusPagamento.Name = "LblStatusPagamento";
             this.LblStatusPagamento.Size = new System.Drawing.Size(219, 25);
             this.LblStatusPagamento.TabIndex = 5;
@@ -106,55 +106,67 @@
             // 
             // TxtNomeDoGasto
             // 
+            this.TxtNomeDoGasto.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.TxtNomeDoGasto.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.TxtNomeDoGasto.Location = new System.Drawing.Point(17, 42);
+            this.TxtNomeDoGasto.MaxLength = 20;
             this.TxtNomeDoGasto.Name = "TxtNomeDoGasto";
-            this.TxtNomeDoGasto.Size = new System.Drawing.Size(216, 30);
+            this.TxtNomeDoGasto.Size = new System.Drawing.Size(494, 30);
             this.TxtNomeDoGasto.TabIndex = 6;
+            this.TxtNomeDoGasto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtNomeDoGasto_KeyPress);
             // 
             // CmbCategoria
             // 
+            this.CmbCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.CmbCategoria.FormattingEnabled = true;
-            this.CmbCategoria.Location = new System.Drawing.Point(295, 40);
+            this.CmbCategoria.Location = new System.Drawing.Point(17, 103);
             this.CmbCategoria.Name = "CmbCategoria";
-            this.CmbCategoria.Size = new System.Drawing.Size(216, 33);
+            this.CmbCategoria.Size = new System.Drawing.Size(330, 33);
             this.CmbCategoria.TabIndex = 7;
             // 
             // DtpDataDoPagamento
             // 
             this.DtpDataDoPagamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.DtpDataDoPagamento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DtpDataDoPagamento.Location = new System.Drawing.Point(17, 107);
+            this.DtpDataDoPagamento.Location = new System.Drawing.Point(382, 105);
             this.DtpDataDoPagamento.MinDate = new System.DateTime(1999, 1, 1, 0, 0, 0, 0);
             this.DtpDataDoPagamento.Name = "DtpDataDoPagamento";
-            this.DtpDataDoPagamento.Size = new System.Drawing.Size(216, 30);
+            this.DtpDataDoPagamento.Size = new System.Drawing.Size(150, 30);
             this.DtpDataDoPagamento.TabIndex = 8;
+            this.DtpDataDoPagamento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DtpDataDoPagamento_KeyPress);
             // 
             // TxtValor
             // 
             this.TxtValor.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.TxtValor.Location = new System.Drawing.Point(295, 106);
+            this.TxtValor.Location = new System.Drawing.Point(17, 167);
+            this.TxtValor.MaxLength = 20;
             this.TxtValor.Name = "TxtValor";
             this.TxtValor.Size = new System.Drawing.Size(216, 30);
             this.TxtValor.TabIndex = 9;
+            this.TxtValor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtValor_KeyPress);
             // 
             // CmbFormaDePagamento
             // 
+            this.CmbFormaDePagamento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbFormaDePagamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.CmbFormaDePagamento.FormattingEnabled = true;
-            this.CmbFormaDePagamento.Location = new System.Drawing.Point(17, 167);
+            this.CmbFormaDePagamento.Location = new System.Drawing.Point(268, 167);
             this.CmbFormaDePagamento.Name = "CmbFormaDePagamento";
-            this.CmbFormaDePagamento.Size = new System.Drawing.Size(216, 33);
+            this.CmbFormaDePagamento.Size = new System.Drawing.Size(330, 33);
             this.CmbFormaDePagamento.TabIndex = 10;
             // 
             // CmbStatusDoPagamento
             // 
+            this.CmbStatusDoPagamento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbStatusDoPagamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.CmbStatusDoPagamento.FormattingEnabled = true;
-            this.CmbStatusDoPagamento.Location = new System.Drawing.Point(295, 167);
+            this.CmbStatusDoPagamento.Items.AddRange(new object[] {
+            "SIM",
+            "NÃO"});
+            this.CmbStatusDoPagamento.Location = new System.Drawing.Point(17, 228);
             this.CmbStatusDoPagamento.Name = "CmbStatusDoPagamento";
-            this.CmbStatusDoPagamento.Size = new System.Drawing.Size(216, 33);
+            this.CmbStatusDoPagamento.Size = new System.Drawing.Size(101, 33);
             this.CmbStatusDoPagamento.TabIndex = 11;
             // 
             // BtnCancelar
@@ -162,7 +174,7 @@
             this.BtnCancelar.BackColor = System.Drawing.Color.Pink;
             this.BtnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold);
-            this.BtnCancelar.Location = new System.Drawing.Point(17, 232);
+            this.BtnCancelar.Location = new System.Drawing.Point(17, 276);
             this.BtnCancelar.Name = "BtnCancelar";
             this.BtnCancelar.Size = new System.Drawing.Size(110, 30);
             this.BtnCancelar.TabIndex = 12;
@@ -174,19 +186,20 @@
             this.BtnCadastrar.BackColor = System.Drawing.Color.Pink;
             this.BtnCadastrar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnCadastrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold);
-            this.BtnCadastrar.Location = new System.Drawing.Point(133, 232);
+            this.BtnCadastrar.Location = new System.Drawing.Point(133, 276);
             this.BtnCadastrar.Name = "BtnCadastrar";
             this.BtnCadastrar.Size = new System.Drawing.Size(110, 30);
             this.BtnCadastrar.TabIndex = 13;
             this.BtnCadastrar.Text = "Cadastrar";
             this.BtnCadastrar.UseVisualStyleBackColor = false;
+            this.BtnCadastrar.Click += new System.EventHandler(this.BtnCadastrar_Click);
             // 
             // FmGastosFixosCadastro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSalmon;
-            this.ClientSize = new System.Drawing.Size(610, 274);
+            this.ClientSize = new System.Drawing.Size(614, 321);
             this.Controls.Add(this.BtnCadastrar);
             this.Controls.Add(this.BtnCancelar);
             this.Controls.Add(this.CmbStatusDoPagamento);
@@ -202,12 +215,13 @@
             this.Controls.Add(this.LblCategoria);
             this.Controls.Add(this.LblNome);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(626, 313);
+            this.MaximumSize = new System.Drawing.Size(630, 360);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(626, 313);
+            this.MinimumSize = new System.Drawing.Size(630, 360);
             this.Name = "FmGastosFixosCadastro";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CADASTRO DE GASTOS";
+            this.Load += new System.EventHandler(this.FmGastosFixosCadastro_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

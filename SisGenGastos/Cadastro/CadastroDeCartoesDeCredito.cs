@@ -1,4 +1,5 @@
 ﻿using SisGenGastosControl;
+using SisGenGastosModel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -60,8 +61,8 @@ namespace SisGenGastos.Cadastro
             devoProsseguir[0] = carCredCtl.AutenticarNome(TxtNomeDoCartaoDeCredito.Text);
             devoProsseguir[1] = carCredCtl.AutenticarDataVencimento(TxtDiaDeVencimento.Text);
             string[] msgErro = new string[2];
-            msgErro[0] = "Preencha o nome corretamente";
-            msgErro[1] = "Entre com uma data válida";
+            msgErro[0] = "Preencha o nome corretamente.";
+            msgErro[1] = "Entre com uma data válida.";
 
             for (int i = 0; i <  devoProsseguir.Length; i++)
             {
@@ -69,6 +70,29 @@ namespace SisGenGastos.Cadastro
                 {
                     MessageBox.Show(msgErro[i], "ATENÇÃO", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     break;
+                }
+                else
+                {
+                    if(i == 1)
+                    {
+                        CartaoDeCreditoMdl carCredMdl = new CartaoDeCreditoMdl();
+                        bool foiCadastrado = carCredMdl.CadastrarNovoCartaoDeCredito(carCredCtl);
+                        if (foiCadastrado)
+                        {
+                            MessageBox.Show("Um novo cartão de crédito foi cadastrado.", "OPERAÇÃO CONCLUÍDA", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            TxtNomeDoCartaoDeCredito.Focus();
+                            TxtNomeDoCartaoDeCredito.SelectAll();
+                            TxtDiaDeVencimento.Clear();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Erro ao cadastrar um novo cartão de crédito.", "FALHA NA OPERAÇÃO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            TxtNomeDoCartaoDeCredito.Focus();
+                            TxtNomeDoCartaoDeCredito.SelectAll();
+                            TxtDiaDeVencimento.Clear();
+                        }
+
+                    }
                 }
             }
         }

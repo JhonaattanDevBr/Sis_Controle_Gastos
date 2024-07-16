@@ -44,6 +44,7 @@
     <Compile Include="CartaoDeCreditoCtl.cs" />
     <Compile Include="CategoriasCtl.cs" />
     <Compile Include="FormaDePagamentoCtl.cs" />
+    <Compile Include="GastosFixosCtl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

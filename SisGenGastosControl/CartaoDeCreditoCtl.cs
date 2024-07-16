@@ -38,16 +38,21 @@ namespace SisGenGastosControl
 
         public bool AutenticarDataVencimento(string dataVencimento)
         {
-            int data = int.Parse(dataVencimento);
-            if (data == 0)
+            if (!string.IsNullOrEmpty(dataVencimento))
             {
-                return false;
+                int data = int.Parse(dataVencimento);
+                if (data == 0)
+                {
+                    return false;
+                }
+                else
+                {
+                    DataDeVencimento = dataVencimento;
+                    return true;
+                }
             }
-            else
-            {
-                DataDeVencimento = dataVencimento;
-                return true;
-            }
+            else { return false; }
+            
         }
     }
 }

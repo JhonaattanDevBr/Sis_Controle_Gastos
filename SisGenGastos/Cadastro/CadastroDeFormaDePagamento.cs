@@ -50,7 +50,7 @@ namespace SisGenGastos.Cadastro
             }
             else
             {
-                MessageBox.Show("Preencha o nome corretamente", "ATENÇÃO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Preencha o nome corretamente.", "ATENÇÃO", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 TxtNomeDaFormaDePagamento.Focus();
                 TxtNomeDaFormaDePagamento.SelectAll();
             }

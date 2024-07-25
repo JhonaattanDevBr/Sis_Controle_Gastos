@@ -1,4 +1,5 @@
-﻿using SisGenGastosModel;
+﻿using SisGenGastosControl;
+using SisGenGastosModel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,15 +18,6 @@ namespace SisGenGastos.Cadastro
         public FmGastosFixosCadastro()
         {
             InitializeComponent();
-        }
-
-        private void BtnCancelar_Click(object sender, EventArgs e)
-        {
-            DialogResult cancelar = MessageBox.Show("Cancelar operação?", "ATENÇÃO", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
-            if(cancelar == DialogResult.Yes)
-            {
-                this.Close();
-            }
         }
 
         private void TxtNomeDoGasto_KeyPress(object sender, KeyPressEventArgs e)
@@ -71,12 +63,49 @@ namespace SisGenGastos.Cadastro
             }
         }
 
+        private void BtnCancelar_Click_1(object sender, EventArgs e)
+        {
+            DialogResult cancelar = MessageBox.Show("Cancelar operação?", "ATENÇÃO", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+            if (cancelar == DialogResult.Yes)
+            {
+                this.Close();
+            }
+        }
+
         private void BtnCadastrar_Click(object sender, EventArgs e)
         {
-            CategoriasMdl catMdl = new CategoriasMdl();
-            FormaDePagamentoMdl formPagMdl = new FormaDePagamentoMdl();
+            GastosFixosCtl gastosFixosCtl = new GastosFixosCtl();
+            bool[] autenticados = new bool[5];
+            string[] msgErro = new string[5];
 
+            msgErro[0] = "Este campo não pode ser vazio! Preencha o nome corretamente.";
+            msgErro[1] = "Este campo não pode ser vazio! Selecione uma categoria.";
+            msgErro[2] = "Este campo não pode ser vazio! Informe um valor.";
+            msgErro[3] = "Este campo não pode ser vazio! Selecione uma forma de pagamento.";
+            msgErro[4] = "Este campo não pode ser vazio! Selecione um status para o pagamento.";
 
+            autenticados[0] = gastosFixosCtl.AutenticarNome(TxtNomeDoGasto.Text);
+            autenticados[1] = gastosFixosCtl.AutenticarCategoria(CmbCategoria.Text);
+            autenticados[2] = gastosFixosCtl.AutenticarValor(TxtValor.Text);
+            autenticados[3] = gastosFixosCtl.AutenticarFormaDePagamento(CmbFormaDePagamento.Text);
+            autenticados[4] = gastosFixosCtl.AutenticarStatus(CmbStatusDoPagamento.Text);
+            gastosFixosCtl.FormatarData(DtpDataDoPagamento.Text);
+
+            for(int i = 0; i < autenticados.Length; i++)
+            {
+                if (autenticados[i] == false)
+                {
+                    MessageBox.Show(msgErro[i], "ATENÇÃO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    break;
+                }
+                GastosFixosMdl gastosFixosMdl = new GastosFixosMdl();
+                gastosFixosCtl.Categoria = gastosFixosMdl.ColetarIdCategoria(gastosFixosCtl);
+                gastosFixosCtl.FormaDePagamento = gastosFixosMdl.ColetarIdFormaDePagamento(gastosFixosCtl);
+
+                // Ja esta funcionando os metodos, agora preciso salvar o gasto fixo no banco de dados.
+            }
         }
+
+        
     }
 }

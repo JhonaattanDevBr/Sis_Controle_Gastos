@@ -8,7 +8,7 @@ namespace SisGenGastosControl
 {
     public class GastosFixosCtl
     {
-
+        // ======================================================== Propriedades da classe
         private string _NomeDoGasto;
         private string _Categoria;
         private string _DataDoPagamento;
@@ -52,6 +52,7 @@ namespace SisGenGastosControl
             set { _status = value; }
         }
 
+        // ======================================================== Metodos da classe
         public bool AutenticarNome(string nome)
         {
             if (string.IsNullOrEmpty(nome))
@@ -67,7 +68,7 @@ namespace SisGenGastosControl
 
         public bool AutenticarCategoria(string categoria)
         {
-            if (!string.IsNullOrEmpty(categoria))
+            if (string.IsNullOrEmpty(categoria))
             {
                 return false;
             }
@@ -79,6 +80,15 @@ namespace SisGenGastosControl
         }
 
         // Aqui vou implementar um metodo para ele ligar o banco de dados e pegar o Id da categoria reutilizando o metodo acima.
+        private void PegarIdCategoria()
+        {
+            bool estaPreenchido = AutenticarCategoria(Categoria);
+            if (estaPreenchido)
+            {
+                // Aqui eu chamo o metodo para conectar ao banco de dados passando a categoria que foi selecionada e buscando e pegando o ID pertencente
+                // a ela.
+            }
+        }
 
         public void FormatarData(string dataDePagamento)
         {
@@ -86,7 +96,7 @@ namespace SisGenGastosControl
             DataDoPagamento = $"{dataFracioada[2]}/{dataFracioada[1]}/{dataFracioada[0]}";
         }
 
-        public bool AutenticarVAlor(string valor)
+        public bool AutenticarValor(string valor)
         {
             if (string.IsNullOrEmpty(valor))
             {
@@ -95,6 +105,43 @@ namespace SisGenGastosControl
             else
             {
                 Valor = valor;
+                return true;
+            }
+        }
+
+        public bool AutenticarFormaDePagamento(string formDePagamento)
+        {
+            if (string.IsNullOrEmpty(formDePagamento))
+            {
+                return false;
+            }
+            else
+            {
+                FormaDePagamento = formDePagamento;
+                return true;
+            }
+        }
+
+        // Aqui vou implementar um metodo para ele ligar o banco de dados e pegar o Id da forma de pagamento reutilizando o metodo acima.
+        private void PegarIdFormaDePagamento()
+        {
+            bool estaPreenchido = AutenticarFormaDePagamento(FormaDePagamento);
+            if(estaPreenchido)
+            {
+                // Aqui eu chamo o metodo para conectar ao banco de dados passando a forma de pagamento que foi selecionada e
+                // buscando e pegando o ID pertencente a ela.
+            }
+        }
+
+        public bool AutenticarStatus(string status)
+        {
+            if (string.IsNullOrEmpty(status))
+            {
+                return false;
+            }
+            else
+            {
+                Status = status;
                 return true;
             }
         }

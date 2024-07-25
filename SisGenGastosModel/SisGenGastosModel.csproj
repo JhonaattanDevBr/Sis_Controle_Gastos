@@ -45,6 +45,7 @@
     <Compile Include="CartaoDeCreditoMdl.cs" />
     <Compile Include="CategoriasMdl.cs" />
     <Compile Include="FormaDePagamentoMdl.cs" />
+    <Compile Include="GastosFixosMdl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -35,5 +35,11 @@ namespace SisGenGastos
             CadastroDeFormaDePagamento form = new CadastroDeFormaDePagamento();
             form.ShowDialog();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            CadastroDeCartoesDeCredito card = new CadastroDeCartoesDeCredito();
+            card.ShowDialog();
+        }
     }
 }

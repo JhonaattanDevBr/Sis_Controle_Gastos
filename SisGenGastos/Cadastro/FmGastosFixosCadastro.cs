@@ -101,8 +101,20 @@ namespace SisGenGastos.Cadastro
                 GastosFixosMdl gastosFixosMdl = new GastosFixosMdl();
                 gastosFixosCtl.Categoria = gastosFixosMdl.ColetarIdCategoria(gastosFixosCtl);
                 gastosFixosCtl.FormaDePagamento = gastosFixosMdl.ColetarIdFormaDePagamento(gastosFixosCtl);
+                bool cadastrar = gastosFixosMdl.CadastrarNovoGastoFixo(gastosFixosCtl);
 
+                if(cadastrar)
+                {
+                    MessageBox.Show("Novo gasto fixo cadastro", "Operação concluida", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    break;
+                }
+                else
+                {
+                    MessageBox.Show("Erro ao cadastrar novo gasto fixo.", "Erro na operação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    break;
+                }
                 // Ja esta funcionando os metodos, agora preciso salvar o gasto fixo no banco de dados.
+                // --select I from Gastos_Fixos JOIN Categoria ON Gastos_Fixos.IdCategoria = Categoria.IdCategoria
             }
         }
 

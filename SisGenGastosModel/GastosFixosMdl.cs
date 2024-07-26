@@ -73,7 +73,7 @@ namespace SisGenGastosModel
             finally { conexao.Close(); }
         }
 
-        public bool CadastrarNovoGastoFixo(GastosFixosCtl gastosFixosCtl)
+        public bool CadastrarNovoGastoFixo(GastosFixosCtl gastosFixosCtl) // Já esta gravando no banco de dados.
         {
             BasesDeDados dtBase = new BasesDeDados();
             SqlConnection conexao = new SqlConnection(dtBase.chaveConexaoDesktop);
@@ -83,6 +83,7 @@ namespace SisGenGastosModel
             {
                 conexao.Open();
                 SqlCommand comandosSql = new SqlCommand(insert, conexao);
+
                 var paramNome = comandosSql.CreateParameter();
                 paramNome.ParameterName = "@nome";
                 paramNome.DbType = DbType.String;
@@ -90,7 +91,34 @@ namespace SisGenGastosModel
                 comandosSql.Parameters.Add(paramNome);
 
                 var paramIdcat = comandosSql.CreateParameter();
-                
+                paramIdcat.ParameterName = "@idCat";
+                paramIdcat.DbType = DbType.Int32;
+                paramIdcat.Value = gastosFixosCtl.Categoria;
+                comandosSql.Parameters.Add(paramIdcat);
+
+                var paramDataPagamento = comandosSql.CreateParameter();
+                paramDataPagamento.ParameterName = "@dataPag";
+                paramDataPagamento.DbType = DbType.String;
+                paramDataPagamento.Value = gastosFixosCtl.DataDoPagamento;
+                comandosSql.Parameters.Add(paramDataPagamento);
+
+                var paramValor = comandosSql.CreateParameter();
+                paramValor.ParameterName = "@valor";
+                paramValor.DbType = DbType.String;
+                paramValor.Value = gastosFixosCtl.Valor;
+                comandosSql.Parameters.Add(paramValor);
+
+                var paramIdFormPagamento = comandosSql.CreateParameter();
+                paramIdFormPagamento.ParameterName = "@idFormPag";
+                paramIdFormPagamento.DbType = DbType.Int32;
+                paramIdFormPagamento.Value = gastosFixosCtl.FormaDePagamento;
+                comandosSql.Parameters.Add(paramIdFormPagamento);
+
+                var paramPago = comandosSql.CreateParameter();
+                paramPago.ParameterName = "@pago";
+                paramPago.DbType = DbType.String;
+                paramPago.Value = gastosFixosCtl.Status;
+                comandosSql.Parameters.Add(paramPago);
 
                 if (comandosSql.ExecuteNonQuery() > 0)
                 {

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -145,5 +146,12 @@ namespace SisGenGastosControl
                 return true;
             }
         }
+
+        public bool PegarIdGastoFixo(string idGastoFixo)
+        {
+            return (string.IsNullOrEmpty(idGastoFixo)) ? false :  true;
+        }
+
+        
     }
 }

@@ -49,10 +49,14 @@
             // 
             // DgvTabelaDeGastos
             // 
+            this.DgvTabelaDeGastos.AllowUserToAddRows = false;
+            this.DgvTabelaDeGastos.AllowUserToDeleteRows = false;
             this.DgvTabelaDeGastos.BackgroundColor = System.Drawing.Color.Pink;
             this.DgvTabelaDeGastos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DgvTabelaDeGastos.Location = new System.Drawing.Point(12, 43);
             this.DgvTabelaDeGastos.Name = "DgvTabelaDeGastos";
+            this.DgvTabelaDeGastos.ReadOnly = true;
+            this.DgvTabelaDeGastos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DgvTabelaDeGastos.Size = new System.Drawing.Size(860, 375);
             this.DgvTabelaDeGastos.TabIndex = 1;
             // 
@@ -96,6 +100,7 @@
             this.BtnAtualizarStatus.TabIndex = 4;
             this.BtnAtualizarStatus.Text = "Atualizar Status";
             this.BtnAtualizarStatus.UseVisualStyleBackColor = false;
+            this.BtnAtualizarStatus.Click += new System.EventHandler(this.BtnAtualizarStatus_Click);
             // 
             // BtnExcluirRegistro
             // 
@@ -109,6 +114,7 @@
             this.BtnExcluirRegistro.TabIndex = 5;
             this.BtnExcluirRegistro.Text = "Excluir Registro";
             this.BtnExcluirRegistro.UseVisualStyleBackColor = false;
+            this.BtnExcluirRegistro.Click += new System.EventHandler(this.BtnExcluirRegistro_Click);
             // 
             // FmGastosFixosConsulta
             // 
@@ -129,6 +135,7 @@
             this.Name = "FmGastosFixosConsulta";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GERENCIADOR DE GASTOS - GASTOS FIXOS";
+            this.Load += new System.EventHandler(this.FmGastosFixosConsulta_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DgvTabelaDeGastos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
